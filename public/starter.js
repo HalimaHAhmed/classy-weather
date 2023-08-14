@@ -1,4 +1,3 @@
-import React from "react";
 function getWeatherIcon(wmoCode) {
   const icons = new Map([
     [[0], "☀️"],
@@ -56,38 +55,3 @@ async function getWeather(location) {
     console.err(err);
   }
 }
-
-
-class App extends React.Component{
-
-    constructor(props){
-      super(props);
-      this.state = {location:"lisbon"}
-      this.fetchWeather = this.fetchWeather.bind(this)
-    }
-
-    fetchWeather(){
-      console.log("Loading Data.....")
-      console.log(this)
-    }
-    render(){
-
-        return(
-            <div  className="app">
-                <h1>Classy Weather</h1>
-
-                <div>
-
-
-                    <input type="text" placeholder="Search From Location...." value={this.state.location}
-                    onChange={e=>this.setState({location: e.target.value})}></input>
-                </div>
-
-            <button  onClick={this.fetchWeather}>Get Weather</button>
-
-            </div>
-        )
-    }
-}
-
-export default App
